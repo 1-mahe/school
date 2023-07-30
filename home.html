@@ -1,0 +1,1011 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: "Open Sans", sans-serif;
+            margin-top: 1.5rem;
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background-color: #073747;
+        }
+
+        .navbar-brand:hover {
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-inline {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #4dccc6;
+        }
+
+        .btn-success {
+            background-color: #4dccc6;
+            background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+        }
+
+        .btn-success:hover,
+        .btn-success:active,
+        .btn-success:focus {
+            background-color: #89d8d3;
+            background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+            border-color: #205f6f;
+            box-shadow: 0 0 0 0.25rem rgba(30, 100, 100, 0.5);
+        }
+
+        .hero {
+            height: 100vh;
+            /* https://mdbootstrap.com/snippets/jquery/mdbootstrap/916526#css-tab-view */
+            background-image: url("./istockphoto-1016119976-612x612.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: aliceblue;
+
+        }
+
+        .btn-outline-info {
+            color: #1b3b42;
+        }
+
+        .btn-outline-info:hover {
+            background: linear-gradient(99deg,
+                    rgba(188, 206, 210, 1) 0%,
+                    rgba(159, 212, 224, 1) 31%,
+                    rgba(135, 213, 232, 0.6783088235294117) 57%,
+                    rgba(35, 195, 227, 0.3029586834733894) 100%);
+        }
+
+        @media (min-width: 576px) {
+            .form-inline .form-control {
+                display: inline-block;
+                width: auto;
+                vertical-align: middle;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+            body {
+                margin-top: 2rem;
+            }
+
+            .page-header {
+                margin-top: 2rem;
+            }
+
+            #header {
+                font-size: calc(1.625rem + 4.5vw);
+            }
+
+            #header2 {
+                font-size: calc(1.475rem + 2.7vw);
+            }
+        }
+
+        .display-1 {
+            font-size: 6rem;
+        }
+
+        .display-4 {
+            font-size: 3.5rem;
+        }
+
+        .lead {
+            font-size: 2rem;
+        }
+
+        #form-outer {
+            background-color: rgb(250, 250, 250);
+            margin: 0 auto;
+            border-radius: 4px;
+            width: 75%;
+            max-width: 900px;
+            padding: 10px;
+            padding-top: 20px;
+        }
+
+        .labels {
+            display: inline-block;
+            text-align: left;
+            width: 40%;
+            padding: 5px;
+            vertical-align: top;
+            margin-top: 10px;
+        }
+
+        .rightTab {
+            display: inline-block;
+            text-align: left;
+            width: 48%;
+            vertical-align: middle;
+        }
+
+        .input-field {
+            height: 20px;
+            width: 280px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+
+        #userAge {
+            width: 40px;
+        }
+
+        .userRatings,
+        input[type="checkbox"] {
+            float: left;
+            margin-right: 5px;
+        }
+
+        #submit {
+            background-color: #064767;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            height: 40px;
+            width: 96px;
+            margin: 10px;
+            border: 0px solid;
+        }
+
+
+        .subbtn {
+            background-color: #043351;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            height: 40px;
+            width: 96px;
+            margin: 10px;
+            border: 0px solid;
+        }
+
+        .dropdown {
+            height: 35px;
+            width: 140px;
+            padding: 5px;
+            margin: 10px;
+            margin-top: 15px;
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+        }
+
+        .radio,
+        .checkbox {
+            position: relative;
+            left: -43px;
+            margin-left: 10px;
+            display: block;
+            padding-bottom: 10px;
+        }
+
+        @media screen and (max-width: 833px) {
+            .input-field {
+                width: 80%;
+            }
+
+            select {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 520px) {
+            .labels {
+                width: 100%;
+                text-align: left;
+            }
+
+            .rightTab {
+                width: 80%;
+                float: left;
+            }
+
+            .input-field {
+                width: 100%;
+            }
+
+            select {
+                width: 100%;
+            }
+        }
+
+        #biodata {
+            text-align: center;
+            font-family: 'Raleway', Helvetica, sans-serif;
+            min-width: 320px;
+            background-color: #064767;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .counting {
+            background: #34495e none repeat scroll 0 0;
+            color: #fff;
+            overflow: hidden;
+            padding: 36px 0;
+        }
+
+        .counting span {
+            font-size: 70px;
+            font-weight: 700;
+            position: relative;
+            text-align: center;
+            display: block;
+        }
+
+        .counting p {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding-top: 30px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .counting span::before {
+            background: #b7b7b7 none repeat scroll 0 0;
+            bottom: -10px;
+            content: " ";
+            height: 4px;
+            left: 32%;
+            position: absolute;
+            width: 36%;
+        }
+
+
+        @media (max-width:980px) {
+            .layout {
+                width: 767px;
+            }
+
+            .grid-3 {
+                width: 50%;
+            }
+        }
+
+        @media (max-width:640px) {
+            .layout {
+                width: 300px;
+            }
+
+            .grid-3 {
+                width: 100%;
+            }
+
+
+        }
+
+
+        .layout {
+            margin: 0 auto;
+            max-width: 1170px;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        /********Grid Widht *******/
+        .grid-3 {
+            width: 25%;
+            float: left;
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+        }
+
+        i {
+            font-size: 4em !important;
+            margin-top: 10%;
+            color: teal;
+        }
+
+
+
+        #h2count {
+            color: teal;
+        }
+
+        .intro {
+            height: auto;
+            min-height: 100vh;
+            text-align: center;
+            background-color: teal;
+        }
+
+        #marks {
+            background-color: #064767;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        #reportHead {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div >
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Global High School</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-content">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#biodata">Bio-Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#marks">Marks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#details">Details</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <form class="form-inline mt-2 mt-md-0">
+                            <input class="form-control me-sm-2 me-2" type="search" id="searchRollNo" placeholder="Search"
+                                aria-label="Search" />
+                                <button class="btn btn-success my-2 my-sm-0" type="button"href="#Search" onclick="Search()">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="msg" style="position: fixed; width: 1500px;"></div>
+            </div>
+        </nav>
+    </div>
+        <div class="px-4 hero pt-5 mb-5 d-flex align-items-center justify-content-center border-bottom ">
+            <div class="page-header text-center">
+                <h1 class="display-1 fw-bold mb-0">High Class Education</h1>
+                <h2 class="fw-light display-4 mt-0 mb-5" id="header2">Built With Love and Support</h2>
+                <button type="button" class="btn-3 btn-lg btn-outline-info">Learn More</button>
+            </div>
+        </div>
+
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>WHO WE ARE</h3>
+                        <p class="lead">A growing company who strive to deliver industry-standard quality within
+                            acceptable
+                            time and budget.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 my-4">
+                        <h4>Classrooms</h4>
+                        <p>Our classroom facilitates students to understand the world. The modern yet age appropriate
+                            classroom infrastructure and activities develop fine and gross motor skills in the students.
+                            In
+                            our seventeen years of journey, we have evolved in inculcating skills in children through
+                            independent and innovative thinking.</p>
+                    </div>
+                    <div class="col-sm-6 my-4">
+                        <h4>Objectives</h4>
+                        <p>We are an educational institution and a community that brings out creative, innovative and
+                            responsible leaders. By cultivating an environment that maximizes the delight and
+                            development of
+                            our students, we boast of a system that prioritizes child-centred learning that encourages
+                            joyful learning across the campus.</p>
+                    </div>
+                    <div class="col-sm-6 my-4">
+                        <h4>Experience</h4>
+                        <p>Educational experience at Global High School turns out to be an overall enriching experience
+                            for
+                            students, parents and teachers alike. The optimum blend of academics, sports, cultural
+                            activities, and personal development helps our students grow in their own sphere besides
+                            exploring the flexible horizons of their personalities.</p>
+                    </div>
+                    <div class="col-sm-6 my-4">
+                        <h4>Curriculum</h4>
+                        <p>Enhance self-awareness
+                            Promote capabilities related to goal setting
+                            Develop thinking skills and creativity
+                            Nurture communication and Interpersonal skills
+                            Strengthen knowledge and attitude related to livelihood skills
+                            Embellish the ability to appreciate art and showcase talents</p>
+                    </div>
+                </div>
+            </div>
+        </section><br><br><br>
+
+            <section id="biodata">
+            <div id="form-outer">
+                <h1 id="description">Students Bio-Data Form</h1>
+                <form id="survey-form" method="GET" action="">
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="name-label" for="name">Roll No: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="tel" name="Rollno" id="rollNo" class="input-field"
+                                placeholder="Enter your roll number" />
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="name-label" for="name">Name: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="text" name="name" id="name" class="input-field"
+                                placeholder="Enter your name" />
+                        </div>
+                    </div>
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="fname-label" for="fname">Father's Name: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="text" name="fname" id="fname" class="input-field"
+                                placeholder="Enter your father's name" />
+                        </div>
+                    </div>
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="mname-label" for="mname">Mother's Name: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="text" name="mname" id="mname" class="input-field"
+                                placeholder="Enter your mother's name"  />
+                        </div>
+                    </div>
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="email-label" for="email">Email: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="email" name="email" id="email" class="input-field" 
+                                placeholder="Enter your Email" />
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="number-label" for="age">Age: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="number" name="age" id="number" min="1" max="125" class="input-field"
+                                placeholder="Age"  />
+                        </div>
+                    </div>
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="dob-label" for="dob">D.O.B: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="date" name="dob" id="iddob" class="input-field"  />
+                        </div>
+                    </div>
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label for="department">Class: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="text" name="cls" id="cls" class="input-field"  />
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label for="address">Address: </label>
+                        </div>
+                        <div class="rightTab">
+                            <textarea id="comments" class="input-field" style="height: 50px; resize: vertical"
+                                name="address" placeholder="Enter your address here"></textarea>
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label for="pincode">Pincode: </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="number" name="pincode" id="idpincode" class="input-field"
+                                style="height: 20px; resize: vertical" />
+                        </div>
+                    </div>
+                    <button id="submit" type="submit" onclick="BioData()">Submit</button>
+
+                </form>
+            </div>
+        </section>
+        <hr><br>
+
+        <section>
+            <div class="countup container-fluid text-center">
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <i class="fa fa-user"></i>
+                        <h2 id=h2count data-max="50">+ Happy Customers</h2>
+                    </div>
+                    <div class="col-sm-3">
+                        <i class="fa fa-code"></i>
+                        <h2 id=h2count data-max="25000">+ Lines of code</h2>
+                    </div>
+                    <div class="col-sm-3">
+                        <i class="fa fa-lock"></i>
+                        <h2 data-max="10">+ Projects</h2>
+                    </div>
+                    <div class="col-sm-3">
+                        <i class="fa fa-briefcase"></i>
+                        <h2 data-max="30" id="test">+ Developers</h2>
+                    </div>
+                </div>
+            </div>
+
+        </section><br><br>
+        <hr>
+
+        <script>
+            function inVisible(element) {
+                //Checking if the element is
+                //visible in the viewport
+                var WindowTop = $(window).scrollTop();
+                var WindowBottom = WindowTop + $(window).height();
+                var ElementTop = element.offset().top;
+                var ElementBottom = ElementTop + element.height();
+                //animating the element if it is
+                //visible in the viewport
+                if ((ElementBottom <= WindowBottom) && ElementTop >= WindowTop)
+                    animate(element);
+            }
+
+            function animate(element) {
+                //Animating the element if not animated before
+                if (!element.hasClass('ms-animated')) {
+                    var maxval = element.data('max');
+                    var html = element.html();
+                    element.addClass("ms-animated");
+                    $({
+                        countNum: element.html()
+                    }).animate({
+                        countNum: maxval
+                    }, {
+                        //duration 5 seconds
+                        duration: 5000,
+                        easing: 'linear',
+                        step: function () {
+                            element.html(Math.floor(this.countNum) + html);
+                        },
+                        complete: function () {
+                            element.html(this.countNum + html);
+                        }
+                    });
+                }
+
+            }
+
+            //When the document is ready
+            $(function () {
+                //This is triggered when the
+                //user scrolls the page
+                $(window).scroll(function () {
+                    //Checking if each items to animate are 
+                    //visible in the viewport
+                    $("h2[data-max]").each(function () {
+                        inVisible($(this));
+                    });
+                })
+            });
+
+        </script>
+
+        <section id="marks">
+            <div class="container fw-bold">
+                <div class="row ">
+                    <div class="col-12 m-auto  ">
+                        <h2 id="reportHead" class="text-center">Students Report Card</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 bg-white p-5 m-auto d-flex justify-content-around">
+                        <div class="col-md-4">
+                            <div>
+                                <form>
+                                    <div class="book1 mb-3">
+                                        <label>Full Name</label>
+                                        <input class="form-control" id="zero" type="text"
+                                            placeholder="Enter your name" />
+                                    </div>
+                                    <div class="book1 mb-3">
+                                        <label>Roll Number</label>
+                                        <input class="form-control" id="rollno" type="number"
+                                            placeholder="Enter your roll number" />
+                                    </div>
+                                    <div class="book1 mb-3">
+                                        <label>English</label>
+                                        <input class="form-control" id="English" type="number"
+                                            placeholder="Enter the marks scored" />
+                                    </div>
+                                    <div class="book2 mb-3">
+                                        <label>Tamil</label>
+                                        <input class="form-control" id="Tamil" type="number"
+                                            placeholder="Enter the marks scored" />
+                                    </div>
+                                    <div class="book3 mb-3">
+                                        <label>Math</label>
+                                        <input class="form-control" id="Math" type="number"
+                                            placeholder="Enter the marks scored" />
+                                    </div>
+                                    <div class="book4 mb-3">
+                                        <label>Science</label>
+                                        <input class="form-control" id="Science" type="number"
+                                            placeholder="Enter the marks scored" />
+                                    </div>
+                                    <div class="book5 mb-3">
+                                        <label>Social</label>
+                                        <input class="form-control" id="Social" type="number"
+                                            placeholder="Enter the marks scored" />
+                                    </div>
+                                    <div>
+                                        <button class="subbtn btn col-12" onclick="reportCard()">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+    </div>
+    <section id="Search">
+        <div id="form-outer">
+            <h1 id="description">Students Dtetails</h1>
+            <form id="survey-form" method="GET" action="">
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="name-label" for="name">Name: </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="Name"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="fname-label" for="fname">Father's Name: </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="fatherName"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="mname-label" for="mname">Mother's Name: </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="motherName"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="email-label" for="email">Email: </label>
+                    </div>
+                    <div class="rightTab"><div id="Email"></div></div>
+                </div>
+                <div class="rowTab">
+                    <div class="labels">
+                        <label for="department">Class: </label>
+                    </div>
+                    <div class="rightTab"><div id="currentcls"></div></div>
+                </div>
+            </form>
+            <h1 id="description">Report Dtetails</h1>
+            <form id="survey-form" method="GET" action="">
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="name-label" for="name">Result : </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="result"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="fname-label" for="fname">Total : </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="total"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="mname-label" for="mname">Percentage : </label>
+                    </div>
+                    <div class="rightTab">
+                        <div id="percentage"></div>
+                    </div>
+                </div>
+
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="email-label" for="email">Grade: </label>
+                    </div>
+                    <div class="rightTab"><div id="grade"></div></div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <hr><br>
+    <script>
+        function BioData(event) {
+            var roll_No = document.getElementById("rollNo").value;
+            var stdName = document.getElementById("name").value;
+            var stdFname = document.getElementById("fname").value;
+            var stdMname = document.getElementById("mname").value;
+            var mail = document.getElementById("email").value;
+            var DOB = document.getElementById("iddob").value;
+            var Cls = document.getElementById("cls").value;
+            if (
+                roll_No != "" &&
+                stdName != "" &&
+                stdFname != "" &&
+                stdMname != "" &&
+                mail != "" &&
+                DOB != "" &&
+                Cls != ""
+            ) {
+                const EmptyObj = localStorage.getItem("BioData");
+                const Array_Obj = JSON.parse(EmptyObj) || [];
+                for (var i in Array_Obj) {
+                    if (Array_Obj[i].key1 != roll_No) {
+                        Array_Obj.push({
+                            key1: roll_No,
+                            student: stdName,
+                            father: stdFname,
+                            mother: stdMname,
+                            STDmail: mail,
+                            StudentDOB: DOB,
+                            StudentClass: Cls,
+                        });
+                        const MyjsonObj = JSON.stringify(Array_Obj);
+                        localStorage.setItem("BioData", MyjsonObj);
+                        SuccessMessage("Successfully Registered");
+                    } else {
+                        var illegel = true;
+                    }
+                }
+                if (EmptyObj == null) {
+                    Array_Obj.push({
+                        key1: roll_No,
+                        student: stdName,
+                        father: stdFname,
+                        mother: stdMname,
+                        STDmail: mail,
+                        StudentDOB: DOB,
+                        StudentClass: Cls,
+                    });
+                    const MyjsonObj = JSON.stringify(Array_Obj);
+                    localStorage.setItem("BioData", MyjsonObj);
+                    SuccessMessage("Successfully Registered");
+                } else if (illegel) {
+                    ErrorMessage("Already Registered");
+                    var illegel = false;
+                }
+            } else {
+                ErrorMessage("All the fields are Required");
+            }
+        }
+
+        // -----------------report Card------------------------
+
+        function reportCard() {
+            var rollNo = document.getElementById("rollno").value;
+            var Eng = document.getElementById("English").value;
+            var Tam = document.getElementById("Tamil").value;
+            var Mat = document.getElementById("Math").value;
+            var soc = document.getElementById("Social").value;
+            var sci = document.getElementById("Science").value;
+            if (Eng != "" && Tam != "" && Mat != "" && soc != "" && sci != "") {
+                if (
+                    Eng >= 0 &&
+                    Eng <= 100 &&
+                    Tam >= 0 &&
+                    Tam <= 100 &&
+                    Mat >= 0 &&
+                    Mat <= 100 &&
+                    soc >= 0 &&
+                    soc <= 100 &&
+                    sci >= 0 &&
+                    sci <= 100
+                ) {
+                    if (Eng >= 35 && Tam >= 35 && Mat >= 35 && soc >= 35 && sci >= 35) {
+                        var result = "PASS";
+                    } else {
+                        var result = "FAIL";
+                    }
+                    var total =
+                        parseInt(Eng) +
+                        parseInt(Tam) +
+                        parseInt(Mat) +
+                        parseInt(soc) +
+                        parseInt(sci);
+                    var percentage = parseFloat(total / 500) * 100;
+                    if (percentage < 34) {
+                        var grade = "F";
+                    } else if (percentage >= 35 && percentage <= 40) {
+                        var grade = "C";
+                    } else if (percentage > 40 && percentage <= 55) {
+                        var grade = "C+";
+                    } else if (percentage > 55 && percentage <= 65) {
+                        var grade = "B";
+                    } else if (percentage > 65 && percentage <= 85) {
+                        var grade = "B+";
+                    } else if (percentage > 85 && percentage <= 95) {
+                        var grade = "A";
+                    } else if (percentage > 95 && percentage <= 100) {
+                        var grade = "A+";
+                    }
+                    const emptyRes = localStorage.getItem("Result");
+                    const ArrayObj = JSON.parse(emptyRes) || [];
+                    ArrayObj.push({
+                        key1: rollNo,
+                        key2: total,
+                        key3: percentage,
+                        key4: grade,
+                        key5: result,
+                    });
+                    const Myjson = JSON.stringify(ArrayObj);
+                    localStorage.setItem("Result", Myjson);
+                    const empty = localStorage.getItem("ReportCard");
+                    const arrayObj = JSON.parse(empty) || [];
+                    for (var i in arrayObj) {
+                        if (arrayObj[i].key1 != rollNo) {
+                            arrayObj.push({
+                                key1: rollNo,
+                                key2: Eng,
+                                key3: Tam,
+                                key4: Mat,
+                                key5: soc,
+                                key6: sci,
+                            });
+                            const jsonObj = JSON.stringify(arrayObj);
+                            localStorage.setItem("ReportCard", jsonObj);
+                            var illegel = false;
+                        } else {
+                            illegel = true;
+                        }
+                    }
+                    if (empty == null) {
+                        arrayObj.push({
+                            key1: rollNo,
+                            key2: Eng,
+                            key3: Tam,
+                            key4: Mat,
+                            key5: soc,
+                            key6: sci,
+                        });
+                        const jsonObj = JSON.stringify(arrayObj);
+                        localStorage.setItem("ReportCard", jsonObj);
+                    } else if (illegel) {
+                        ErrorMessage("Already Registered");
+                        illegel = false;
+                    }
+                } else {
+                    ErrorMessage("Invalid Mark");
+                }
+            }
+        }
+        //-------------------------Search-------------------------
+        function Search() {
+        var search = document.getElementById("searchRollNo").value;
+        const BioDataObj = localStorage.getItem("BioData");
+        const JSObj = JSON.parse(BioDataObj);
+        const StudentRes = localStorage.getItem("Result");
+        const JSResult = JSON.parse(StudentRes);
+        for (var i in JSObj) {
+          if (JSObj[i].key1 == search) {
+            var checked = JSObj[i].key1;
+            var Name = JSObj[i].student;
+            var fatherName = JSObj[i].father;
+            var motherName = JSObj[i].mother;
+            var Email = JSObj[i].STDmail;
+            var stdcls = JSObj[i].StudentClass;
+          }
+        }
+        for(var j in JSResult){
+            if(JSResult[j].key1==search){
+            var Total = JSResult[j].key2;
+            var Percentage = JSResult[j].key3;
+            var Grade = JSResult[j].key4;
+            var Result = JSResult[j].key5;
+            }
+        }
+        if (checked == search) {
+          document.getElementById("Name").innerHTML = Name;
+          document.getElementById("fatherName").innerHTML = fatherName;
+          document.getElementById("motherName").innerHTML = motherName;
+          document.getElementById("Email").innerHTML = Email;
+          document.getElementById("currentcls").innerHTML = stdcls;
+          document.getElementById("total").innerHTML = Total;
+          document.getElementById("percentage").innerHTML = Percentage;
+          document.getElementById("grade").innerHTML = Grade;
+          document.getElementById("result").innerHTML = Result;
+        }else{
+          ErrorMessage("Invalid");
+        }
+      }
+        var Message;
+        function ErrorMessage(Message) {
+          $(".alert").remove();
+          $(".msg").append(
+            "<center>" +
+              "<div class = alert-danger><div class = alert> <div class = alert-dismissible> <strong>" +
+                Message +
+              "</strong> <button type = button class= btn-close data-bs-dismiss = alert></button></div>" +
+              "</center>"
+          );
+          $(".alert").fadeOut(5000);
+        }
+      function SuccessMessage(Message) {
+        $(".alert").remove();
+          $(".msg").append(
+            "<center>" +
+              "<div class = alert-success><div class = alert> <div class = alert-dismissible> <strong>" +
+                Message +
+              "</strong> <button type = button class= btn-close data-bs-dismiss = alert></button></div>" +
+              "</center>"
+            );
+          $(".alert").fadeOut(5000);
+        } 
+    </script>
+</body>
+
+</html>
